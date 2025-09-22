@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --color-background: #F2F6FE;
+  --color-text: #272F5A;
+  --font-family-base: "Hanken Grotesk", sans-serif;
+}
+
 *,
 *::before,
 *::after {
@@ -25,8 +33,10 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   -webkit-font-smoothing: antialiased;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-family-base);
 }
-
 
 ul,
 ol {
@@ -38,7 +48,6 @@ picture {
   max-width: 100%;
   display: block;
 }
-
 
 input,
 button,
