@@ -3,7 +3,7 @@ $primary-btn-border: #6D7AF9;
 $primary-btn-color: #fff;
 $primary-btn-radius: 4px;
 $primary-btn-padding: 14px 22px;
-$primary-btn-font-size: 1.21rem;
+$primary-btn-font-size: 1.125rem;
 $primary-btn-font-weight: 700;
 $primary-btn-opacity-hover: 0.8;
 $primary-btn-transition: opacity 0.3s;
@@ -33,7 +33,7 @@ $primary-btn-icon-gap: 0.5em;
   align-items: center;
 }
 
-.primaryButtonWithIconRight .primaryButtonIconRight {
+.primaryButtonIconRight {
   margin-left: $primary-btn-icon-gap;
   display: flex;
   align-items: center;

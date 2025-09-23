@@ -1,26 +1,27 @@
-import React from 'react';
+import * as React from 'react';
 import './button.scss';
+import { Button as RadixButton } from '@radix-ui/themes';
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends React.ComponentProps<typeof RadixButton> {
   text: string;
   iconRight?: React.ReactNode;
-  variant?: 'withIcon';
 }
 
 export default function Button({
   text,
   iconRight,
-  variant,
+  className,
   ...props
 }: ButtonProps) {
-  const className = `primaryButton${variant === 'withIcon' ? ' primaryButtonWithIconRight' : ''}`;
-
   return (
-    <button className={className} {...props}>
+    <RadixButton
+      className={['primaryButton', className].filter(Boolean).join(' ')}
+      {...props}
+    >
       <span className="primaryButtonContent">{text}</span>
-      {variant === 'withIcon' && iconRight && (
+      {iconRight && (
         <span className="primaryButtonIconRight">{iconRight}</span>
       )}
-    </button>
+    </RadixButton>
   );
 }
