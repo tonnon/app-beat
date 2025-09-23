@@ -1,0 +1,41 @@
+@font-face {
+  font-family: "HKGrotesk";
+  font-weight: 400;
+  src: url("./assets/fonts/HKGrotesk-Regular.otf") format("opentype");
+}
+
+$color-background: #F2F6FE;
+$color-text: #272F5A;
+$font-family-base: "HKGrotesk";
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd {
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  background-color: $color-background;
+  color: $color-text;
+  font-family: $font-family-base;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img, picture {
+  max-width: 100%;
+  display: block;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}

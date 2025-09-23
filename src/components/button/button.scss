@@ -1,0 +1,40 @@
+$primary-btn-bg: #6D7AF9;
+$primary-btn-border: #6D7AF9;
+$primary-btn-color: #fff;
+$primary-btn-radius: 4px;
+$primary-btn-padding: 14px 22px;
+$primary-btn-font-size: 1.21rem;
+$primary-btn-font-weight: 700;
+$primary-btn-opacity-hover: 0.8;
+$primary-btn-transition: opacity 0.3s;
+$primary-btn-icon-gap: 0.5em;
+
+.primaryButton {
+  color: $primary-btn-color;
+  opacity: var(--primary-btn-opacity, 1);
+  transition: $primary-btn-transition;
+  border-radius: $primary-btn-radius;
+  border: 1px solid $primary-btn-border;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  padding: $primary-btn-padding;
+  background: $primary-btn-bg;
+  font-weight: $primary-btn-font-weight;
+  font-size: $primary-btn-font-size;
+}
+
+.primaryButton:hover {
+  opacity: $primary-btn-opacity-hover;
+}
+
+.primaryButtonContent {
+  display: flex;
+  align-items: center;
+}
+
+.primaryButtonWithIconRight .primaryButtonIconRight {
+  margin-left: $primary-btn-icon-gap;
+  display: flex;
+  align-items: center;
+}
