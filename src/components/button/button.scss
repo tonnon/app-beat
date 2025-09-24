@@ -9,7 +9,7 @@ $solid-btn-opacity-hover: 0.8;
 $solid-btn-transition: opacity 0.3s;
 $solid-btn-icon-gap: 0.5em;
 
-.solidButton {
+.solid-button {
   color: $solid-btn-color;
   opacity: var(--solid-btn-opacity, 1);
   transition: $solid-btn-transition;
@@ -26,41 +26,41 @@ $solid-btn-icon-gap: 0.5em;
   gap: $solid-btn-icon-gap;
 }
 
-.solidButton--xs {
+.solid-button-xs {
   font-size: 0.75rem;
   padding: 0.25rem 0.75rem;
   min-height: 24px;
 }
 
-.solidButton--sm {
+.solid-button-sm {
   font-size: 0.875rem;
   padding: 0.5rem 1rem;
   min-height: 32px;
 }
 
-.solidButton--md {
+.solid-button-md {
   font-size: 1rem;
   padding: 0.75rem 1.25rem;
   min-height: 40px;
 }
 
-.solidButton--lg {
+.solid-button-lg {
   font-size: 1.125rem;
   padding: 1rem 1.5rem;
   min-height: 48px;
 }
 
-.solidButton:hover {
+.solid-button:hover {
   opacity: $solid-btn-opacity-hover;
 }
 
-.solidButtonContent {
+.solid-button-content {
   display: flex;
   align-items: center;
   flex-shrink: 0;
 }
 
-.solidButtonIconRight {
+.solid-button-icon-right {
   display: flex;
   align-items: center;
   flex-shrink: 0;

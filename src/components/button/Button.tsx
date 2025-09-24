@@ -15,16 +15,16 @@ export default function Button({
   buttonSize = 'md',
   ...props
 }: ButtonProps) {
-  const sizeClass = `solidButton--${buttonSize}`;
+  const sizeClass = `solid-button-${buttonSize}`;
   
   return (
     <RadixButton
-      className={[className, 'solidButton', sizeClass].filter(Boolean).join(' ')}
+      className={[className, 'solid-button', sizeClass].filter(Boolean).join(' ')}
       {...props}
     >
-      <span className="solidButtonContent">{text}</span>
+      <span className="solid-button-content">{text}</span>
       {iconRight && (
-        <span className="solidButtonIconRight">{iconRight}</span>
+        <span className="solid-button-icon-right">{iconRight}</span>
       )}
     </RadixButton>
   );
