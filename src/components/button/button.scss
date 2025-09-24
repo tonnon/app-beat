@@ -1,40 +1,67 @@
-$primary-btn-bg: #6D7AF9;
-$primary-btn-border: #6D7AF9;
-$primary-btn-color: #fff;
-$primary-btn-radius: 4px;
-$primary-btn-padding: 14px 22px;
-$primary-btn-font-size: 1.125rem;
-$primary-btn-font-weight: 700;
-$primary-btn-opacity-hover: 0.8;
-$primary-btn-transition: opacity 0.3s;
-$primary-btn-icon-gap: 0.5em;
+$solid-btn-bg: #6D7AF9;
+$solid-btn-border: #6D7AF9;
+$solid-btn-color: #fff;
+$solid-btn-radius: 4px;
+$solid-btn-padding: 14px 22px;
+$solid-btn-font-size: 1.125rem;
+$solid-btn-font-weight: 700;
+$solid-btn-opacity-hover: 0.8;
+$solid-btn-transition: opacity 0.3s;
+$solid-btn-icon-gap: 0.5em;
 
-.primaryButton {
-  color: $primary-btn-color;
-  opacity: var(--primary-btn-opacity, 1);
-  transition: $primary-btn-transition;
-  border-radius: $primary-btn-radius;
-  border: 1px solid $primary-btn-border;
+.solidButton {
+  color: $solid-btn-color;
+  opacity: var(--solid-btn-opacity, 1);
+  transition: $solid-btn-transition;
+  border-radius: $solid-btn-radius;
+  border: 1px solid $solid-btn-border;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  padding: $primary-btn-padding;
-  background: $primary-btn-bg;
-  font-weight: $primary-btn-font-weight;
-  font-size: $primary-btn-font-size;
+  justify-content: center;
+  padding: $solid-btn-padding;
+  background: $solid-btn-bg;
+  font-weight: $solid-btn-font-weight;
+  font-size: $solid-btn-font-size;
+  gap: $solid-btn-icon-gap;
 }
 
-.primaryButton:hover {
-  opacity: $primary-btn-opacity-hover;
+.solidButton--xs {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  min-height: 24px;
 }
 
-.primaryButtonContent {
+.solidButton--sm {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  min-height: 32px;
+}
+
+.solidButton--md {
+  font-size: 1rem;
+  padding: 0.75rem 1.25rem;
+  min-height: 40px;
+}
+
+.solidButton--lg {
+  font-size: 1.125rem;
+  padding: 1rem 1.5rem;
+  min-height: 48px;
+}
+
+.solidButton:hover {
+  opacity: $solid-btn-opacity-hover;
+}
+
+.solidButtonContent {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
-.primaryButtonIconRight {
-  margin-left: $primary-btn-icon-gap;
+.solidButtonIconRight {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
