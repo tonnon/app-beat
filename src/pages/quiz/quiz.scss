@@ -1,20 +1,12 @@
 .container {
+    width: 100%;
     height: 100vh;
 }
 
 .bg-image {
-    width: 100%;
-    height: 60vh;
-    background-image: url('@/assets/img/anti-stigma_mentalHealthMatters_0.png');
+    height: 50vh;
+    background-image: url('@/assets/img/illus-boy-with-coffee.webp');
     background-size: cover;
-    background-position: center top;
+    background-position: center;
     background-repeat: no-repeat;
-}
-
-/* Para telas maiores que tablet (desktop) */
-@media (min-width: 1024px) {
-    .bg-image {
-        background-size: contain;
-        background-position: center;
-    }
 }
