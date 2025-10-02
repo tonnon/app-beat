@@ -1,16 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { 
-  ArrowRightIcon, 
+import {
+  ArrowRightIcon,
+  ChecklistIcon,
+  CommentIcon,
+  EducationIcon,
+  GraphIcon,
+  HeadCircuitIcon,
   IconSizes,
   getIconSize,
   type IconSize
 } from '../components/icons/Icons';
 
-const IconDisplay = ({ 
-  IconComponent, 
+const IconDisplay = ({
+  IconComponent,
   size = 'md',
-  name 
-}: { 
+  name
+}: {
   IconComponent: React.ComponentType<{ size?: number; style?: React.CSSProperties }>;
   size?: IconSize;
   name: string;
@@ -23,10 +28,11 @@ const IconDisplay = ({
     padding: '1rem',
     border: '1px solid #e5e7eb',
     borderRadius: '8px',
-    minWidth: '120px'
+    minWidth: '120px',
+    backgroundColor: '#fff'
   }}>
-    <IconComponent size={getIconSize(size)} />
-    <span style={{ fontSize: '0.75rem', fontWeight: '500' }}>{name}</span>
+    <IconComponent size={getIconSize(size)} style={{ color: '#374151' }} />
+    <span style={{ fontSize: '0.75rem', fontWeight: '500', color: '#111827' }}>{name}</span>
     <span style={{ fontSize: '0.625rem', color: '#6b7280' }}>
       {typeof size === 'number' ? `${size}px` : `${size} (${getIconSize(size)}px)`}
     </span>
@@ -52,11 +58,16 @@ A centralized icon system built on top of React Icons with consistent sizing and
 - **Accessibility**: Icons include proper ARIA attributes
 
 ## Available Icons
-Currently includes essential UI icons for actions and navigation.
+- **ArrowRightIcon** - Navigation arrow
+- **ChecklistIcon** - Task/checklist indicator
+- **CommentIcon** - Comment/message indicator
+- **EducationIcon** - Education/learning related
+- **GraphIcon** - Graph/statistics visualization
+- **HeadCircuitIcon** - AI/technology related
 
 ## Usage
 \`\`\`tsx
-import { ArrowRightIcon, CheckIcon } from '../components/icons';
+import { ArrowRightIcon, ChecklistIcon } from '../components/icons/Icons';
 
 // Default size (20px)
 <ArrowRightIcon />
@@ -66,6 +77,9 @@ import { ArrowRightIcon, CheckIcon } from '../components/icons';
 
 // Predefined size
 <ArrowRightIcon size="lg" />
+
+// With custom styling
+<ChecklistIcon size={16} style={{ color: '#10b981' }} />
 \`\`\`
 
 ## Size System
@@ -96,13 +110,20 @@ export const AllIcons: Story = {
     },
   },
   render: () => (
-    <div style={{ 
-      display: 'grid', 
+    <div style={{
+      display: 'grid',
       gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
       gap: '1rem',
-      padding: '1rem'
+      padding: '2rem',
+      backgroundColor: '#f9fafb',
+      borderRadius: '8px'
     }}>
       <IconDisplay IconComponent={ArrowRightIcon} name="ArrowRightIcon" />
+      <IconDisplay IconComponent={ChecklistIcon} name="ChecklistIcon" />
+      <IconDisplay IconComponent={CommentIcon} name="CommentIcon" />
+      <IconDisplay IconComponent={EducationIcon} name="EducationIcon" />
+      <IconDisplay IconComponent={GraphIcon} name="GraphIcon" />
+      <IconDisplay IconComponent={HeadCircuitIcon} name="HeadCircuitIcon" />
     </div>
   ),
 };
@@ -117,29 +138,32 @@ export const SizeVariants: Story = {
     },
   },
   render: () => (
-    <div style={{ 
-      display: 'flex', 
-      flexDirection: 'column', 
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
       gap: '2rem',
-      padding: '2rem'
+      padding: '2rem',
+      backgroundColor: '#fff'
     }}>
-
       <div>
-        <h3 style={{ marginBottom: '1rem', fontSize: '1rem', fontWeight: '600' }}>
-          ArrowRightIcon - All Sizes
+        <h3 style={{ marginBottom: '1rem', fontSize: '1rem', fontWeight: '600', color: '#111827' }}>
+          Icon Sizes Comparison
         </h3>
-        <div style={{ 
-          display: 'flex', 
-          gap: '1rem', 
+        <div style={{
+          display: 'flex',
+          gap: '2rem',
           alignItems: 'end',
-          flexWrap: 'wrap'
+          flexWrap: 'wrap',
+          padding: '1rem',
+          backgroundColor: '#f9fafb',
+          borderRadius: '8px'
         }}>
-          <IconDisplay IconComponent={ArrowRightIcon} size="xs" name="XS" />
-          <IconDisplay IconComponent={ArrowRightIcon} size="sm" name="SM" />
-          <IconDisplay IconComponent={ArrowRightIcon} size="md" name="MD" />
-          <IconDisplay IconComponent={ArrowRightIcon} size="lg" name="LG" />
-          <IconDisplay IconComponent={ArrowRightIcon} size="xl" name="XL" />
-          <IconDisplay IconComponent={ArrowRightIcon} size="2xl" name="2XL" />
+          <IconDisplay IconComponent={ChecklistIcon} size="xs" name="XS" />
+          <IconDisplay IconComponent={ChecklistIcon} size="sm" name="SM" />
+          <IconDisplay IconComponent={ChecklistIcon} size="md" name="MD" />
+          <IconDisplay IconComponent={ChecklistIcon} size="lg" name="LG" />
+          <IconDisplay IconComponent={ChecklistIcon} size="xl" name="XL" />
+          <IconDisplay IconComponent={ChecklistIcon} size="2xl" name="2XL" />
         </div>
       </div>
 
@@ -147,12 +171,12 @@ export const SizeVariants: Story = {
         borderTop: '1px solid #e5e7eb',
         paddingTop: '2rem'
       }}>
-        <h3 style={{ marginBottom: '1rem', fontSize: '1rem', fontWeight: '600' }}>
+        <h3 style={{ marginBottom: '1rem', fontSize: '1rem', fontWeight: '600', color: '#111827' }}>
           Size Specifications
         </h3>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(6, 1fr)',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))',
           gap: '1rem',
           textAlign: 'center'
         }}>
@@ -163,7 +187,7 @@ export const SizeVariants: Story = {
               borderRadius: '6px',
               backgroundColor: '#f9fafb'
             }}>
-              <div style={{ fontSize: '0.875rem', fontWeight: '600', marginBottom: '0.5rem' }}>
+              <div style={{ fontSize: '0.875rem', fontWeight: '600', marginBottom: '0.5rem', color: '#111827' }}>
                 {key.toUpperCase()}
               </div>
               <div style={{ fontSize: '0.75rem', color: '#6b7280' }}>
@@ -187,52 +211,44 @@ export const UsageExamples: Story = {
     },
   },
   render: () => (
-    <div style={{ 
-      display: 'flex', 
-      flexDirection: 'column', 
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
       gap: '2rem',
-      padding: '2rem'
+      padding: '2rem',
+      backgroundColor: '#fff'
     }}>
       <div>
-        <h3 style={{ marginBottom: '1rem', fontSize: '1rem', fontWeight: '600' }}>
-          In Button Components
+        <h3 style={{ marginBottom: '1rem', fontSize: '1rem', fontWeight: '600', color: '#111827' }}>
+          In Navigation
         </h3>
-        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
-          <div style={{ 
-            display: 'inline-flex', 
-            alignItems: 'center', 
-            gap: '0.5rem',
-            padding: '0.25rem 0.75rem',
-            backgroundColor: '#6D7AF9',
-            color: 'white',
-            borderRadius: '4px',
-            fontSize: '0.75rem'
-          }}>
-            Next <ArrowRightIcon size={12} />
+        <div style={{
+          display: 'flex',
+          gap: '1rem',
+          padding: '1rem',
+          backgroundColor: '#f9fafb',
+          borderRadius: '8px',
+          flexWrap: 'wrap'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <ChecklistIcon size={24} style={{ color: '#079FA4' }} />
+            <span style={{ fontSize: '0.875rem', fontWeight: '500' }}>Checklist</span>
           </div>
-          <div style={{ 
-            display: 'inline-flex', 
-            alignItems: 'center', 
-            gap: '0.5rem',
-            padding: '0.5rem 1rem',
-            backgroundColor: '#6D7AF9',
-            color: 'white',
-            borderRadius: '4px',
-            fontSize: '0.875rem'
-          }}>
-            Continue <ArrowRightIcon size={16} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <EducationIcon size={24} style={{ color: '#079FA4' }} />
+            <span style={{ fontSize: '0.875rem', fontWeight: '500' }}>Education</span>
           </div>
-          <div style={{ 
-            display: 'inline-flex', 
-            alignItems: 'center', 
-            gap: '0.5rem',
-            padding: '0.75rem 1.25rem',
-            backgroundColor: '#6D7AF9',
-            color: 'white',
-            borderRadius: '4px',
-            fontSize: '1rem'
-          }}>
-            Proceed <ArrowRightIcon size={20} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <HeadCircuitIcon size={24} style={{ color: '#079FA4' }} />
+            <span style={{ fontSize: '0.875rem', fontWeight: '500' }}>AI Circuit</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <GraphIcon size={24} style={{ color: '#079FA4' }} />
+            <span style={{ fontSize: '0.875rem', fontWeight: '500' }}>Analytics</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <CommentIcon size={24} style={{ color: '#079FA4' }} />
+            <span style={{ fontSize: '0.875rem', fontWeight: '500' }}>Comments</span>
           </div>
         </div>
       </div>
@@ -241,103 +257,30 @@ export const UsageExamples: Story = {
         borderTop: '1px solid #e5e7eb',
         paddingTop: '2rem'
       }}>
-        <h3 style={{ marginBottom: '1rem', fontSize: '1rem', fontWeight: '600' }}>
+        <h3 style={{ marginBottom: '1rem', fontSize: '1rem', fontWeight: '600', color: '#111827' }}>
           In List Items
         </h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '0.75rem',
+          padding: '1rem',
+          backgroundColor: '#f9fafb',
+          borderRadius: '8px'
+        }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             <ArrowRightIcon size={16} style={{ color: '#6b7280' }} />
             <span style={{ fontSize: '0.875rem' }}>View details</span>
           </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <ArrowRightIcon size={16} style={{ color: '#6b7280' }} />
+            <span style={{ fontSize: '0.875rem' }}>Continue reading</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <ArrowRightIcon size={16} style={{ color: '#6b7280' }} />
+            <span style={{ fontSize: '0.875rem' }}>Learn more</span>
+          </div>
         </div>
-      </div>
-    </div>
-  ),
-};
-
-export const CodeExamples: Story = {
-  name: 'Code Examples',
-  parameters: {
-    docs: {
-      description: {
-        story: 'Copy-paste ready code examples for common icon usage patterns.',
-      },
-    },
-  },
-  render: () => (
-    <div style={{ 
-      display: 'flex', 
-      flexDirection: 'column', 
-      gap: '2rem',
-      padding: '2rem'
-    }}>
-      <div>
-        <h3 style={{ marginBottom: '1rem', fontSize: '1rem', fontWeight: '600' }}>
-          Import Statement
-        </h3>
-        <pre style={{
-          backgroundColor: '#f3f4f6',
-          padding: '1rem',
-          borderRadius: '6px',
-          fontSize: '0.875rem',
-          overflow: 'auto'
-        }}>
-{`import { 
-  ArrowRightIcon, 
-  CheckIcon, 
-  DownloadIcon 
-} from '../components/icons';`}
-        </pre>
-      </div>
-
-      <div>
-        <h3 style={{ marginBottom: '1rem', fontSize: '1rem', fontWeight: '600' }}>
-          Basic Usage
-        </h3>
-        <pre style={{
-          backgroundColor: '#f3f4f6',
-          padding: '1rem',
-          borderRadius: '6px',
-          fontSize: '0.875rem',
-          overflow: 'auto'
-        }}>
-{`// Default size (20px)
-<ArrowRightIcon />
-
-// Custom size
-<ArrowRightIcon size={24} />
-
-// Predefined size
-<ArrowRightIcon size="lg" />
-
-// With custom styling
-<CheckIcon size={16} style={{ color: '#10b981' }} />`}
-        </pre>
-      </div>
-
-      <div>
-        <h3 style={{ marginBottom: '1rem', fontSize: '1rem', fontWeight: '600' }}>
-          In Button Components
-        </h3>
-        <pre style={{
-          backgroundColor: '#f3f4f6',
-          padding: '1rem',
-          borderRadius: '6px',
-          fontSize: '0.875rem',
-          overflow: 'auto'
-        }}>
-{`<Button 
-  text="Continue" 
-  buttonSize="md"
-  iconRight={<ArrowRightIcon size={20} />}
-/>
-
-<Button 
-  text="Download" 
-  buttonSize="lg"
-  iconRight={<DownloadIcon size={24} />}
-/>`}
-        </pre>
       </div>
     </div>
   ),

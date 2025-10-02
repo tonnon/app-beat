@@ -1,8 +1,20 @@
-export { 
+export type { IconBaseProps } from 'react-icons';
+export {
   RiArrowRightLine as ArrowRightIcon,
 } from 'react-icons/ri';
-
-export type { IconBaseProps } from 'react-icons';
+export {
+  MdOutlineChecklistRtl as ChecklistIcon,
+  MdOutlineComment as CommentIcon,
+} from "react-icons/md";
+export {
+  IoSchoolOutline as EducationIcon,
+} from "react-icons/io5";
+export {
+  PiHeadCircuit as HeadCircuitIcon
+} from "react-icons/pi";
+export {
+  VscGraph as GraphIcon
+} from "react-icons/vsc";
 
 export const IconSizes = {
   xs: 12,
