@@ -1,15 +1,19 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import {
-  ArrowRightIcon,
   ChecklistIcon,
   CommentIcon,
   EducationIcon,
   GraphIcon,
   HeadCircuitIcon,
+  UserIcon,
+  StarIcon,
+  PenIcon,
+  SettingsIcon,
+  LogoutIcon,
   IconSizes,
   getIconSize,
-  type IconSize
-} from '../components/icons/Icons';
+  type IconSize,
+} from '@/components/icons/Icons';
 
 const IconDisplay = ({
   IconComponent,
@@ -41,6 +45,7 @@ const IconDisplay = ({
 
 const meta: Meta = {
   title: 'Design System/Icons',
+  component: ChecklistIcon,
   parameters: {
     layout: 'padded',
     docs: {
@@ -58,25 +63,16 @@ A centralized icon system built on top of React Icons with consistent sizing and
 - **Accessibility**: Icons include proper ARIA attributes
 
 ## Available Icons
-- **ArrowRightIcon** - Navigation arrow
 - **ChecklistIcon** - Task/checklist indicator
 - **CommentIcon** - Comment/message indicator
 - **EducationIcon** - Education/learning related
 - **GraphIcon** - Graph/statistics visualization
 - **HeadCircuitIcon** - AI/technology related
-
-## Usage
-\`\`\`tsx
-import { ArrowRightIcon, ChecklistIcon } from '../components/icons/Icons';
-
-// Default size (20px)
-<ArrowRightIcon />
-
-// Custom size
-<ArrowRightIcon size={24} />
-
-// Predefined size
-<ArrowRightIcon size="lg" />
+- **UserIcon** - User/profile avatar placeholder
+- **StarIcon** - Awards, badges or achievements
+- **PenIcon** - Drafts or edit actions
+- **SettingsIcon** - Preferences and configuration
+- **LogoutIcon** - Sign out or exit actions
 
 // With custom styling
 <ChecklistIcon size={16} style={{ color: '#10b981' }} />
@@ -98,7 +94,20 @@ The icon system provides consistent sizing options:
 };
 
 export default meta;
-type Story = StoryObj;
+type Story = StoryObj<typeof meta>;
+
+const ICONS = [
+  { component: ChecklistIcon, name: 'ChecklistIcon' },
+  { component: CommentIcon, name: 'CommentIcon' },
+  { component: EducationIcon, name: 'EducationIcon' },
+  { component: GraphIcon, name: 'GraphIcon' },
+  { component: HeadCircuitIcon, name: 'HeadCircuitIcon' },
+  { component: UserIcon, name: 'UserIcon' },
+  { component: StarIcon, name: 'StarIcon' },
+  { component: PenIcon, name: 'PenIcon' },
+  { component: SettingsIcon, name: 'SettingsIcon' },
+  { component: LogoutIcon, name: 'LogoutIcon' },
+] as const;
 
 export const AllIcons: Story = {
   name: 'All Available Icons',
@@ -118,12 +127,9 @@ export const AllIcons: Story = {
       backgroundColor: '#f9fafb',
       borderRadius: '8px'
     }}>
-      <IconDisplay IconComponent={ArrowRightIcon} name="ArrowRightIcon" />
-      <IconDisplay IconComponent={ChecklistIcon} name="ChecklistIcon" />
-      <IconDisplay IconComponent={CommentIcon} name="CommentIcon" />
-      <IconDisplay IconComponent={EducationIcon} name="EducationIcon" />
-      <IconDisplay IconComponent={GraphIcon} name="GraphIcon" />
-      <IconDisplay IconComponent={HeadCircuitIcon} name="HeadCircuitIcon" />
+      {ICONS.map(({ component: IconComponent, name }) => (
+        <IconDisplay key={name} IconComponent={IconComponent} name={name} />
+      ))}
     </div>
   ),
 };
@@ -253,35 +259,6 @@ export const UsageExamples: Story = {
         </div>
       </div>
 
-      <div style={{
-        borderTop: '1px solid #e5e7eb',
-        paddingTop: '2rem'
-      }}>
-        <h3 style={{ marginBottom: '1rem', fontSize: '1rem', fontWeight: '600', color: '#111827' }}>
-          In List Items
-        </h3>
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '0.75rem',
-          padding: '1rem',
-          backgroundColor: '#f9fafb',
-          borderRadius: '8px'
-        }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <ArrowRightIcon size={16} style={{ color: '#6b7280' }} />
-            <span style={{ fontSize: '0.875rem' }}>View details</span>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <ArrowRightIcon size={16} style={{ color: '#6b7280' }} />
-            <span style={{ fontSize: '0.875rem' }}>Continue reading</span>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <ArrowRightIcon size={16} style={{ color: '#6b7280' }} />
-            <span style={{ fontSize: '0.875rem' }}>Learn more</span>
-          </div>
-        </div>
-      </div>
     </div>
   ),
 };

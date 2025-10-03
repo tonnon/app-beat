@@ -7,7 +7,7 @@ import {
   HeadCircuitIcon,
   GraphIcon,
   CommentIcon,
-} from '../icons/Icons';
+} from '@/components/icons/Icons';
 import './bottom-navbar.scss';
 
 export interface BottomNavbarProps<

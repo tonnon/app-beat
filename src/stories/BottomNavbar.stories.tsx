@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
-import BottomNavbar from '../components/bottom-navbar/BottomNavbar';
+import BottomNavbar from '@/components/navbar/bottom-navbar/BottomNavbar';
 
 const meta: Meta<typeof BottomNavbar> = {
   title: 'Components/BottomNavbar',
@@ -84,8 +84,7 @@ export const Default: Story = {
 
         <BottomNavbar
           activeIndex={activeIndex}
-          onChange={(index, item) => {
-            console.log('🔄 Changed to:', item.label, 'at index', index);
+          onChange={(index: number) => {
             setActiveIndex(index);
           }}
         />
