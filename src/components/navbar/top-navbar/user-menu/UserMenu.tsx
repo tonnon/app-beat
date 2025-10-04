@@ -81,8 +81,8 @@ export default function UserMenu() {
       align="end"
       sideOffset={6}
       contentClassName="user-menu-content"
+      useDefaultContentStyles={false}
       arrow
-      arrowClassName="user-menu-arrow"
     />
   );
 }

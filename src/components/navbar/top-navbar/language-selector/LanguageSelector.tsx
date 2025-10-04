@@ -67,7 +67,6 @@ export default function LanguageSelector({
       contentClassName="language-selector-content"
       useDefaultContentStyles={false}
       arrow
-      arrowClassName="language-selector-arrow"
       sideOffset={5}
       align="end"
     />

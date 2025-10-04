@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import './dropdown.scss';
 
@@ -23,6 +23,7 @@ export interface DropdownProps {
   useDefaultContentStyles?: boolean;
   arrow?: boolean;
   arrowClassName?: string;
+  contentStyle?: CSSProperties;
   onOpenChange?: (open: boolean) => void;
 }
 
@@ -66,8 +67,11 @@ export default function Dropdown({
   useDefaultContentStyles = true,
   arrow = false,
   arrowClassName,
+  contentStyle,
   onOpenChange,
 }: DropdownProps) {
+  const dropdownZIndex = 9999;
+
   return (
     <DropdownMenu.Root modal={modal} onOpenChange={onOpenChange}>
       <DropdownMenu.Trigger asChild>{trigger}</DropdownMenu.Trigger>
@@ -80,6 +84,7 @@ export default function Dropdown({
             useDefaultContentStyles && 'dropdown-content',
             contentClassName,
           )}
+          style={{ zIndex: dropdownZIndex, ...contentStyle }}
         >
           {items.map((item) => (
             <DropdownMenu.Item

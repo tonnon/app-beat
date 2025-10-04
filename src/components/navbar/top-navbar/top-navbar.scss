@@ -1,4 +1,4 @@
-$top-navbar-bg: #fffffD;
+$top-navbar-bg: #FFFFFD;
 $top-navbar-bg-scrolled: rgba(255, 255, 255, 0.95);
 $top-navbar-height: 64px;
 $top-navbar-height-mobile: 56px;
@@ -144,20 +144,3 @@ $top-navbar-gradient-end: #00D4DB;
   object-fit: contain;
 }
 
-/* @media (max-width: 768px) {
-  .top-navbar {
-    height: $top-navbar-height-mobile;
-  }
-  
-  .top-navbar-container {
-    padding: $top-navbar-padding-mobile;
-  }
-  
-  .top-navbar-center {
-    display: none;
-  }
-  
-  .top-navbar-logo-image {
-    height: 32px;
-  }
-} */

@@ -8,7 +8,7 @@ $language-selector-border: #e0e0e0;
 $language-selector-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 $language-selector-shadow-trigger: 0 2px 4px rgba(0, 0, 0, 0.1);
 $language-selector-shadow-trigger-hover: 0 4px 8px rgba(0, 0, 0, 0.15);
-$language-selector-trigger-size: 40px;
+$language-selector-trigger-size: 35px;
 $language-selector-trigger-size-mobile: 36px;
 $language-selector-flag-size: 24px;
 $language-selector-flag-size-mobile: 20px;
@@ -17,7 +17,6 @@ $language-selector-content-border-radius: 8px;
 $language-selector-item-border-radius: 6px;
 $language-selector-outline-width: 2px;
 $language-selector-outline-offset: 3px;
-$language-selector-z-index: 1001;
 $language-selector-animation-duration: 0.2s;
 $language-selector-transition-fast: 0.15s ease;
 $language-selector-transition-normal: 0.2s ease;
@@ -72,7 +71,6 @@ $language-selector-transition-normal: 0.2s ease;
   min-width: fit-content;
   display: inline-flex;
   flex-direction: column;
-  z-index: $language-selector-z-index;
   animation: slideDownAndFade $language-selector-animation-duration ease;
   will-change: opacity, transform;
 }
@@ -131,11 +129,6 @@ $language-selector-transition-normal: 0.2s ease;
   font-weight: 600;
   color: $language-selector-item-active;
   line-height: 1;
-}
-
-.language-selector-arrow {
-  fill: $language-selector-content-bg;
-  filter: drop-shadow(0 -1px 1px rgba(0, 0, 0, 0.05));
 }
 
 @media (max-width: 768px) {

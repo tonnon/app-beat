@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
-import Dropdown, { type DropdownItem } from '@/components/dropdown/Dropdown';
+import Dropdown, { type DropdownItem, type DropdownProps } from '@/components/dropdown/Dropdown';
 import { StarIcon, PenIcon, SettingsIcon } from '@/components/icons/Icons';
 
 const meta = {
@@ -63,6 +63,48 @@ const BASE_ITEMS: DropdownItem[] = [
   },
 ];
 
+type PlaygroundStoryProps = DropdownProps & {
+  readonly trigger: DropdownProps['trigger'];
+  readonly items: DropdownItem[];
+};
+
+function PlaygroundContent({ items, trigger, ...controls }: PlaygroundStoryProps) {
+  const [lastSelected, setLastSelected] = useState<string | null>(null);
+
+  const enhancedItems = items.map((item) => ({
+    ...item,
+    onSelect: () => {
+      item.onSelect?.();
+      setLastSelected(item.id);
+    },
+  }));
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', alignItems: 'center' }}>
+      <Dropdown
+        {...controls}
+        trigger={trigger}
+        items={enhancedItems}
+      />
+
+      <div
+        style={{
+          minWidth: '220px',
+          padding: '1rem',
+          borderRadius: '0.75rem',
+          background: '#f1f5f9',
+          border: '1px solid #e2e8f0',
+          textAlign: 'center',
+          color: '#0f172a',
+        }}
+      >
+        <strong>Last selected:</strong>{' '}
+        {lastSelected ? lastSelected.replace('-', ' ') : 'nothing yet'}
+      </div>
+    </div>
+  );
+}
+
 export const Playground: Story = {
   args: {
     trigger: (
@@ -88,40 +130,5 @@ export const Playground: Story = {
     sideOffset: 6,
     arrow: true,
   },
-  render: ({ items, trigger, ...controls }) => {
-    const [lastSelected, setLastSelected] = useState<string | null>(null);
-
-    const enhancedItems = items.map((item) => ({
-      ...item,
-      onSelect: () => {
-        item.onSelect?.();
-        setLastSelected(item.id);
-      },
-    }));
-
-    return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', alignItems: 'center' }}>
-        <Dropdown
-          {...controls}
-          trigger={trigger}
-          items={enhancedItems}
-        />
-
-        <div
-          style={{
-            minWidth: '220px',
-            padding: '1rem',
-            borderRadius: '0.75rem',
-            background: '#f1f5f9',
-            border: '1px solid #e2e8f0',
-            textAlign: 'center',
-            color: '#0f172a',
-          }}
-        >
-          <strong>Last selected:</strong>{' '}
-          {lastSelected ? lastSelected.replace('-', ' ') : 'nothing yet'}
-        </div>
-      </div>
-    );
-  },
+  render: (args) => <PlaygroundContent {...(args as PlaygroundStoryProps)} />,
 };
