@@ -13,6 +13,8 @@ export interface DropdownItem {
   readonly onSelect?: () => void;
 }
 
+type DropdownVariant = 'default' | 'filter';
+
 export interface DropdownProps {
   trigger: ReactNode;
   items: ReadonlyArray<DropdownItem>;
@@ -25,10 +27,21 @@ export interface DropdownProps {
   arrowClassName?: string;
   contentStyle?: CSSProperties;
   onOpenChange?: (open: boolean) => void;
+  variant?: DropdownVariant;
 }
 
 function joinClassNames(...classes: Array<string | false | null | undefined>) {
-  return classes.filter(Boolean).join(' ');
+  let result = '';
+
+  for (const value of classes) {
+    if (!value) {
+      continue;
+    }
+
+    result = result ? `${result} ${value}` : value;
+  }
+
+  return result;
 }
 
 function renderItemContent({ content, icon, label, description }: DropdownItem) {
@@ -69,8 +82,11 @@ export default function Dropdown({
   arrowClassName,
   contentStyle,
   onOpenChange,
+  variant = 'default',
 }: DropdownProps) {
   const dropdownZIndex = 9999;
+  const contentVariantClass = variant !== 'default' ? `dropdown-content--${variant}` : undefined;
+  const itemVariantClass = variant !== 'default' ? `dropdown-item--${variant}` : undefined;
 
   return (
     <DropdownMenu.Root modal={modal} onOpenChange={onOpenChange}>
@@ -82,6 +98,7 @@ export default function Dropdown({
           sideOffset={sideOffset}
           className={joinClassNames(
             useDefaultContentStyles && 'dropdown-content',
+            useDefaultContentStyles && contentVariantClass,
             contentClassName,
           )}
           style={{ zIndex: dropdownZIndex, ...contentStyle }}
@@ -93,7 +110,7 @@ export default function Dropdown({
               onSelect={() => {
                 item.onSelect?.();
               }}
-              className={joinClassNames('dropdown-item', item.className)}
+              className={joinClassNames('dropdown-item', itemVariantClass, item.className)}
             >
               {renderItemContent(item)}
             </DropdownMenu.Item>

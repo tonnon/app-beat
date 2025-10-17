@@ -1,0 +1,126 @@
+@use "@/styles/theme" as theme;
+
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  width: 100%;
+}
+
+.auth-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.auth-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: theme.$color-text;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid theme.$color-border;
+  border-radius: 8px;
+  background-color: theme.$color-surface;
+  color: theme.$color-text;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &::placeholder {
+    color: rgba(theme.$color-text, 0.6);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: theme.$color-primary;
+    box-shadow: 0 0 0 3px rgba(theme.$color-primary, 0.15);
+  }
+}
+
+.auth-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.auth-actions-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  color: theme.$color-text;
+}
+
+.auth-register-text {
+  font-size: 0.9375rem;
+  font-weight: 400;
+}
+
+.auth-register-button {
+  align-self: flex-start;
+  min-width: 160px;
+}
+
+.auth-confirm-button {
+  min-width: 160px;
+}
+
+.auth-link-button {
+  all: unset;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: theme.$link-color;
+  transition: color 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    color: theme.$color-primary;
+  }
+}
+
+.auth-prompt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: theme.$color-text;
+  text-align: center;
+}
+
+.auth-prompt-button {
+  font-size: inherit;
+}
+
+@media (max-width: 560px) {
+  .auth-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .auth-actions-left {
+    align-items: stretch;
+  }
+
+  .auth-register-button,
+  .auth-confirm-button {
+    width: 100%;
+  }
+}

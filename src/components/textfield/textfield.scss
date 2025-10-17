@@ -1,0 +1,93 @@
+@use "sass:color";
+@use "@/styles/theme" as theme;
+
+$focus-shadow: 0 0 0 3px rgba(theme.$color-primary-alt, 0.35);
+$transition-duration: 200ms;
+
+.app-textfield {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.app-textfield-label {
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: theme.$color-text;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+.app-textfield-input {
+  --text-field-border-radius: 0;
+  --text-field-border-width: 0;
+  --text-field-padding: 0;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid theme.$color-input-border;
+  padding: 8px !important;
+  transition: border-color $transition-duration ease, box-shadow $transition-duration ease, background-color $transition-duration ease;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    border-color: color.scale(theme.$color-input-border, $lightness: -12%);
+  }
+
+  &:focus-within {
+    border-color: theme.$color-primary;
+    box-shadow: none;
+  }
+
+  .rt-TextFieldInput {
+    flex: 1;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+    color: theme.$color-text;
+    background: transparent !important;
+    background-color: transparent !important;
+
+    &::placeholder {
+      color: theme.$color-placeholder;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 1000px theme.$color-surface inset !important;
+      box-shadow: 0 0 0 1000px theme.$color-surface inset !important;
+      -webkit-text-fill-color: theme.$color-text !important;
+      background-color: transparent !important;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+
+    &[type="password"]:-webkit-autofill,
+    &[type="password"]:-webkit-autofill:hover,
+    &[type="password"]:-webkit-autofill:focus,
+    &[type="password"]:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 1000px theme.$color-surface inset !important;
+      box-shadow: 0 0 0 1000px theme.$color-surface inset !important;
+      -webkit-text-fill-color: theme.$color-text !important;
+      background-color: transparent !important;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+  }
+}
+
+.app-textfield-input--error {
+  border-color: theme.$color-error;
+
+  &:hover {
+    border-color: theme.$color-error;
+  }
+
+  &:focus-within {
+    border-color: theme.$color-error;
+    box-shadow: none;
+  }
+}

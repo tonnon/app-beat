@@ -1,13 +1,15 @@
-$language-selector-bg: #079FA4;
-$language-selector-bg-hover: #068a8f;
-$language-selector-bg-hover-alpha: rgba(7, 159, 164, 0.1);
-$language-selector-text: #ffffff;
-$language-selector-content-bg: #ffffff;
-$language-selector-item-active: #079FA4;
-$language-selector-border: #e0e0e0;
+@use "@/styles/theme" as theme;
+
+$language-selector-bg: theme.$color-primary;
+$language-selector-bg-hover: theme.$color-primary-hover;
+$language-selector-bg-hover-alpha: rgba(theme.$color-primary, 0.1);
+$language-selector-text: theme.$color-surface;
+$language-selector-content-bg: theme.$color-surface;
+$language-selector-item-active: theme.$color-primary;
+$language-selector-border: theme.$color-border;
 $language-selector-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 $language-selector-shadow-trigger: 0 2px 4px rgba(0, 0, 0, 0.1);
-$language-selector-shadow-trigger-hover: 0 4px 8px rgba(0, 0, 0, 0.15);
+$language-selector-shadow-trigger-hover: 0 4px 4px 0 #8f720840;
 $language-selector-trigger-size: 35px;
 $language-selector-trigger-size-mobile: 36px;
 $language-selector-flag-size: 24px;
@@ -129,37 +131,4 @@ $language-selector-transition-normal: 0.2s ease;
   font-weight: 600;
   color: $language-selector-item-active;
   line-height: 1;
-}
-
-@media (max-width: 768px) {
-  .language-selector-trigger {
-    width: $language-selector-trigger-size-mobile;
-    height: $language-selector-trigger-size-mobile;
-    font-size: 13px;
-  }
-  
-  .language-selector-content {
-    min-width: 75px;
-  }
-  
-  .language-selector-item {
-    padding: 0.4rem 0.6rem;
-    font-size: 13px;
-  }
-  
-  .language-selector-flag {
-    width: $language-selector-flag-size-mobile;
-    height: $language-selector-flag-size-mobile;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .language-selector-trigger,
-  .language-selector-item {
-    transition: none;
-  }
-  
-  .language-selector-content {
-    animation: none;
-  }
 }

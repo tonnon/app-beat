@@ -1,8 +1,8 @@
-import { useCallback, useMemo } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import './language-selector.scss';
 import spainFlag from '@/assets/img/spain.svg';
-import cataloniaFlag from '@/assets/img/catalonia.png';
+import cataloniaFlag from '@/assets/img/catalonia.svg';
 import Dropdown from '@/components/dropdown/Dropdown';
 
 export type Language = 'ES' | 'CA';
@@ -12,8 +12,8 @@ export interface LanguageSelectorProps {
 }
 
 const LANGUAGES = [
-  { code: 'ES' as const, i18nCode: 'es', name: 'Español', flag: spainFlag },
-  { code: 'CA' as const, i18nCode: 'ca', name: 'Català', flag: cataloniaFlag },
+  { code: 'ES' as const, i18nCode: 'es', name: 'Spain', flag: spainFlag },
+  { code: 'CA' as const, i18nCode: 'ca', name: 'Catalonia', flag: cataloniaFlag },
 ] as const;
 
 export default function LanguageSelector({
@@ -21,6 +21,13 @@ export default function LanguageSelector({
 }: LanguageSelectorProps) {
   const { i18n } = useTranslation('navbar');
   
+  useEffect(() => {
+    LANGUAGES.forEach(({ flag }) => {
+      const image = new Image();
+      image.src = flag;
+    });
+  }, []);
+
   const selectedLanguage = (i18n.language.toUpperCase() as Language);
 
   const handleLanguageChange = useCallback((language: Language) => {

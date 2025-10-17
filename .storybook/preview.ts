@@ -1,4 +1,5 @@
 import type { Preview } from '@storybook/react-vite'
+import '@radix-ui/themes/styles.css'
 import '../src/index.scss'
 
 const preview: Preview = {
@@ -15,7 +16,7 @@ const preview: Preview = {
       values: [
         {
           name: 'light',
-          value: '#F2F6FE',
+          value: '#f5f8fb',
         },
         {
           name: 'white',

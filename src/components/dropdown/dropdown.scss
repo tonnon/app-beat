@@ -25,6 +25,12 @@ $dropdown-icon-size: 1.125rem;
 $dropdown-body-gap: 0.125rem;
 $dropdown-description-font-size: 0.8rem;
 $dropdown-description-color: #6b7280;
+$dropdown-filter-trigger-bg: #ffffff;
+$dropdown-filter-trigger-border: rgba(15, 23, 42, 0.1);
+$dropdown-filter-trigger-radius: 0.85rem;
+$dropdown-filter-trigger-padding: 0.65rem 1rem;
+$dropdown-filter-trigger-color: #0f172a;
+$dropdown-filter-trigger-icon-color: #64748b;
 
 .dropdown-content {
   min-width: $dropdown-min-width;
@@ -36,6 +42,46 @@ $dropdown-description-color: #6b7280;
   backdrop-filter: blur($dropdown-backdrop-blur);
   animation: dropdown-fade-in $dropdown-animation-duration ease-out;
   z-index: $dropdown-z-index;
+}
+
+.dropdown-content--filter {
+  min-width: var(--radix-dropdown-menu-trigger-width);
+  width: var(--radix-dropdown-menu-trigger-width);
+  max-width: var(--radix-dropdown-menu-trigger-width);
+  padding: 0.35rem;
+  border-radius: 0.9rem;
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.14);
+}
+
+.dropdown-trigger--filter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  min-width: 9.5rem;
+  padding: $dropdown-filter-trigger-padding;
+  border-radius: $dropdown-filter-trigger-radius;
+  border: 1px solid $dropdown-filter-trigger-border;
+  background: $dropdown-filter-trigger-bg;
+  color: $dropdown-filter-trigger-color;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.07);
+
+  &:hover,
+  &:focus-visible {
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.1);
+  }
+
+  &::after {
+    content: '▾';
+    font-size: 1rem;
+    color: $dropdown-filter-trigger-icon-color;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 }
 
 .dropdown-arrow {
@@ -72,6 +118,11 @@ $dropdown-description-color: #6b7280;
 .dropdown-item[data-disabled] {
   opacity: $dropdown-item-disabled-opacity;
   cursor: not-allowed;
+}
+
+.dropdown-item--filter.is-active {
+  background: rgba(7, 159, 164, 0.12);
+  color: #079fa4;
 }
 
 .dropdown-item-layout {

@@ -3,17 +3,25 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import esCommon from '@/locales/es/common.json';
 import esNavbar from '@/locales/es/navbar.json';
+import esQuestionnaires from '@/locales/es/questionnaires.json';
+import esAuth from '@/locales/es/auth.json';
 import caCommon from '@/locales/ca/common.json';
 import caNavbar from '@/locales/ca/navbar.json';
+import caQuestionnaires from '@/locales/ca/questionnaires.json';
+import caAuth from '@/locales/ca/auth.json';
 
 const resources = {
   es: {
     common: esCommon,
     navbar: esNavbar,
+  questionnaires: esQuestionnaires,
+  auth: esAuth,
   },
   ca: {
     common: caCommon,
     navbar: caNavbar,
+  questionnaires: caQuestionnaires,
+  auth: caAuth,
   },
 } as const;
 
@@ -23,7 +31,10 @@ i18n
   .init({
     resources,
     fallbackLng: 'es',
-    defaultNS: 'common',
+    supportedLngs: ['es', 'ca'],
+    load: 'languageOnly',
+  defaultNS: 'common',
+  ns: ['common', 'navbar', 'questionnaires', 'auth'],
     
     detection: {
       order: ['localStorage', 'navigator'],

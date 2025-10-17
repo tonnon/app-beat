@@ -1,5 +1,7 @@
-import { useMemo } from 'react';
+import { useMemo, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useAuthStore } from '@/stores/authStore';
 import type { IconType } from 'react-icons';
 import Dropdown, { type DropdownItem } from '@/components/dropdown/Dropdown';
 import {
@@ -52,12 +54,20 @@ const MENU_OPTIONS: ReadonlyArray<MenuOptionDefinition> = [
 
 export default function UserMenu() {
   const { t } = useTranslation('navbar');
+  const logout = useAuthStore((state) => state.logout);
+  const navigate = useNavigate();
+
+  const handleLogout = useCallback(() => {
+    logout();
+    navigate('/', { replace: true });
+  }, [logout, navigate]);
+
   const menuItems = useMemo(
     () =>
       MENU_OPTIONS.map<DropdownItem>(({ id, icon: IconComponent, labelKey, onSelect }) => ({
         id,
         className: 'user-menu-item',
-        onSelect,
+        onSelect: id === 'logout' ? handleLogout : onSelect,
         content: (
           <div className="user-menu-item-content">
             <span className="user-menu-item-icon">
@@ -67,7 +77,7 @@ export default function UserMenu() {
           </div>
         ),
       })),
-    [t],
+    [t, handleLogout],
   );
 
   return (

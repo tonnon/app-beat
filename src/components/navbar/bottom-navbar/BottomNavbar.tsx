@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from 'react';
 import type { CSSProperties, MouseEvent } from 'react';
 import type { IconType } from 'react-icons';
+import { useNavigate } from 'react-router-dom';
 import {
   ChecklistIcon,
   EducationIcon,
@@ -15,10 +16,12 @@ export interface BottomNavbarProps<
     icon: IconType;
     label?: string;
     onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+    route?: string;
   } = {
     icon: IconType;
     label?: string;
     onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+    route?: string;
   }
 > {
   items?: Item[];
@@ -32,12 +35,13 @@ export type BottomNavbarItem = {
   icon: IconType;
   label?: string;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+  route?: string;
 };
 
 const NAVBAR_ITEMS: BottomNavbarItem[] = [
-  { icon: ChecklistIcon, label: 'Checklist' },
+  { icon: ChecklistIcon, label: 'Checklist', route: '/questionnaires' },
   { icon: EducationIcon, label: 'Education' },
-  { icon: HeadCircuitIcon, label: 'Head Circuit' },
+  { icon: HeadCircuitIcon, label: 'Head Circuit', route: '/pratice' },
   { icon: GraphIcon, label: 'Graphic' },
   { icon: CommentIcon, label: 'Comment' },
 ];
@@ -57,9 +61,37 @@ export default function BottomNavbar<
   onChange,
   className,
 }: BottomNavbarProps<Item>) {
+  const navigate = useNavigate();
+
+  const defaultItems = useMemo(
+    () =>
+      NAVBAR_ITEMS.map((item) => {
+        const { route, onClick } = item;
+
+        if (!route) {
+          return item as Item;
+        }
+
+        return {
+          ...item,
+          onClick: (event: MouseEvent<HTMLButtonElement>) => {
+            onClick?.(event);
+
+            if (event.defaultPrevented) {
+              return;
+            }
+
+            event.preventDefault();
+            navigate(route);
+          },
+        };
+      }) as Item[],
+    [navigate]
+  );
+
   const computedItems = useMemo(
-    () => (items?.length ? items : (NAVBAR_ITEMS as Item[])),
-    [items]
+    () => (items?.length ? items : defaultItems),
+    [items, defaultItems]
   );
 
   const isControlled = activeIndex !== undefined;

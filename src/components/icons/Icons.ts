@@ -1,32 +1,42 @@
 export type { IconBaseProps } from 'react-icons';
 
 export {
+  FaUserAlt as UserIcon,
+  FaRegStar as StarIcon,
+  FaPen as PenIcon
+} from 'react-icons/fa';
+
+export {
   MdOutlineChecklistRtl as ChecklistIcon,
   MdOutlineComment as CommentIcon,
+  MdErrorOutline as AlertCircleIcon,
 } from 'react-icons/md';
 
 export {
   IoSchoolOutline as EducationIcon,
-  IoSettingsOutline as SettingsIcon
+  IoSettingsOutline as SettingsIcon,
+  IoArrowBack as ArrowLeftIcon,
 } from 'react-icons/io5';
 
-export {
-  PiHeadCircuit as HeadCircuitIcon,
-} from 'react-icons/pi';
+export { 
+  IoMdClose as CloseIcon
+} from "react-icons/io";
+
+export { 
+  AiOutlineLogout as LogoutIcon
+} from "react-icons/ai";
 
 export {
   VscGraph as GraphIcon,
 } from 'react-icons/vsc';
 
 export {
-  FaUserAlt as UserIcon,
-  FaRegStar as StarIcon,
-  FaPen as PenIcon
-} from 'react-icons/fa';
+  PiHeadCircuit as HeadCircuitIcon,
+} from 'react-icons/pi';
 
 export { 
-  AiOutlineLogout as LogoutIcon
-} from "react-icons/ai";
+  GiHamburgerMenu as MobileMenu 
+} from "react-icons/gi";
 
 export const IconSizes = {
   xs: 12,
