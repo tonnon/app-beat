@@ -1,14 +1,12 @@
-$card-bg: #ffffff;
-$card-border-color: rgba(39, 168, 173, 0.16);
-$card-shadow: 0 12px 24px rgba(45, 42, 68, 0.12);
-$card-radius: 0.5rem;
+$card-radius: 3px;
+$card-shadow: 0 12px 24px $card-shadow-color;
 $header-gap: 0.5rem;
 $header-padding: 16px;
 $header-font-size: 0.8rem;
 $header-letter-spacing: 0.08em;
 $status-dot-size: 0.42rem;
 $status-dot-radius: 50%;
-$status-dot-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25);
+$status-dot-shadow: 0 0 0 2px $card-status-dot-shadow;
 $body-gap: 1.2rem;
 $body-padding: 16px 1.25rem 1.65rem;
 $title-font-size: 1rem;
@@ -19,30 +17,15 @@ $title-underline-margin: 0.6rem;
 $footer-gap: 0.75rem;
 $footer-padding: 0 1.2rem 1.2rem;
 $mobile-breakpoint: 640px;
-$color-accent: #079fa4;
-$color-primary-text: #ffffff;
-$color-title: #2d2a44;
-$color-title-underline: #1795a0;
-$color-progress-primary: #ffa703;
-$color-progress-track: #f1f5f9;
-
-$questionnaire-status-config: (
-  'completed': (
-    'progress-circle-color': #0ab67c,
-  ),
-  'not_started': (
-    'progress-circle-color': #94a3b8,
-  )
-);
 
 .questionnaire-card {
-  --questionnaire-status-bar-bg: #{$color-accent};
-  --questionnaire-title-color: #{$color-title};
-  --questionnaire-title-underline: #{$color-title-underline};
-  --progress-circle-color: #{$color-progress-primary};
-  --progress-circle-track: #{$color-progress-track};
+  --questionnaire-status-bar-bg: #{$color-primary};
+  --questionnaire-title-color: #{$card-title};
+  --questionnaire-title-underline: #{$card-title-underline};
+  --progress-circle-color: #{$progress-primary};
+  --progress-circle-track: #{$progress-track};
 
-  background: $card-bg;
+  background: $color-white;
   border: 1px solid $card-border-color;
   border-radius: $card-radius;
   box-shadow: $card-shadow;
@@ -64,7 +47,7 @@ $questionnaire-status-config: (
   width: 100%;
   padding: $header-padding;
   background: var(--questionnaire-status-bar-bg);
-  color: $color-primary-text;
+  color: $color-white;
   font-size: $header-font-size;
   font-weight: 700;
   letter-spacing: $header-letter-spacing;
@@ -112,14 +95,6 @@ $questionnaire-status-config: (
 
   .app-button {
     flex: 1;
-  }
-}
-
-@each $status, $variables in $questionnaire-status-config {
-  .questionnaire-card[data-status='#{$status}'] {
-    @each $key, $value in $variables {
-      --#{$key}: #{$value};
-    }
   }
 }
 

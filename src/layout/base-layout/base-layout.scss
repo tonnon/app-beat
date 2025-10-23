@@ -1,9 +1,7 @@
-$base-background: #f5f8fb;
-
 .base-layout {
   position: relative;
   min-height: 100dvh;
-  background: $base-background;
+  background: $page-background;
   display: flex;
 }
 

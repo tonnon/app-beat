@@ -1,6 +1,3 @@
-@use "sass:color";
-@use "./theme" as *;
-
 $color-scrollbar-track: color.adjust($color-primary, $lightness: 52%);
 $color-scrollbar-track-shadow: rgba($color-primary, 0.12);
 $color-scrollbar-thumb-shadow: rgba($color-primary, 0.28);

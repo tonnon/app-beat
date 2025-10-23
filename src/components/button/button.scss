@@ -1,15 +1,13 @@
-@use "@/styles/theme" as theme;
-
 $button-radius: 3px;
 $button-font-weight: 600;
 $button-transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
-$button-solid-bg: theme.$button-color-primary;
-$button-solid-bg-hover: theme.$button-color-primary-hover;
-$button-solid-text: theme.$color-surface;
-$button-solid-shadow: 0 10px 18px theme.$button-color-primary-shadow;
-$button-border-color: theme.$button-color-primary;
-$button-border-hover-bg: theme.$button-color-border-hover-bg;
-$button-border-text: theme.$button-color-primary;
+$button-solid-bg: $button-color-primary;
+$button-solid-bg-hover: $button-color-primary-hover;
+$button-solid-text: $color-surface;
+$button-solid-shadow: 0 10px 18px $button-color-primary-shadow;
+$button-border-color: $button-color-primary;
+$button-border-hover-bg: $button-color-border-hover-bg;
+$button-border-text: $button-color-primary;
 $button-padding-y: 8px;
 $button-padding-x: 16px;
 $button-font-size-md: 14px;
@@ -61,7 +59,7 @@ $button-shadow-duration: 220ms;
 .app-button-solid:not(:disabled):focus-visible {
   background: $button-solid-bg-hover;
   border-color: transparent;
-  box-shadow: 0 4px 4px 0 theme.$button-color-primary-glow;
+  box-shadow: 0 4px 4px 0 $button-color-primary-glow;
   transition-timing-function: ease-out;
 }
 
@@ -74,18 +72,16 @@ $button-shadow-duration: 220ms;
 .app-button-border:not(:disabled):hover,
 .app-button-border:not(:disabled):focus-visible {
   background: $button-border-hover-bg;
-  box-shadow: 0 4px 4px 0 theme.$button-color-primary-glow;
+  box-shadow: 0 4px 4px 0 $button-color-primary-glow;
   transition-timing-function: ease-out;
 }
 
 .app-button-md {
   padding: $button-padding-y $button-padding-x;
   font-size: $button-font-size-md;
-  line-height: 1.4;
 }
 
 .app-button-lg {
   padding: $button-padding-y $button-padding-x;
   font-size: $button-font-size-lg;
-  line-height: 1.4;
 }

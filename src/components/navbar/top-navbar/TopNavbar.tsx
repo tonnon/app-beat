@@ -66,7 +66,19 @@ export default function TopNavbar({
     }
   }, [openDialog, isMobileMenuOpen, closeMobileMenu]);
 
-  const languageSelector = <LanguageSelector onLanguageChange={handleMobileLanguageChange} />;
+  const mobileLanguageSelector = (
+    <LanguageSelector
+      onLanguageChange={handleMobileLanguageChange}
+      displayMode="inline"
+    />
+  );
+
+  const desktopLanguageSelector = (
+    <LanguageSelector
+      onLanguageChange={handleMobileLanguageChange}
+      displayMode="dropdown"
+    />
+  );
 
   const authActions = !isAuthenticated ? (
     <Button 
@@ -212,11 +224,11 @@ export default function TopNavbar({
             isMobileViewport={isMobileViewport}
             onToggle={toggleMobileMenu}
             onClose={closeMobileMenu}
-            languageSelector={!isAuthenticated ? languageSelector : undefined}
+            languageSelector={isMobileViewport ? mobileLanguageSelector : undefined}
             authActions={isAuthenticated ? null : authActions}
           />
           <div className="top-navbar-right-desktop">
-            {(!isMobileViewport || isAuthenticated) && languageSelector}
+            {!isMobileViewport && desktopLanguageSelector}
             {authActions}
           </div>
         </div>

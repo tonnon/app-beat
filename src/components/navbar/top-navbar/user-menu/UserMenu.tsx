@@ -25,7 +25,7 @@ type MenuOptionDefinition = {
 };
 
 const MENU_OPTIONS: ReadonlyArray<MenuOptionDefinition> = [
-  {
+/*   {
     id: 'my-insignia',
     labelKey: 'my_insignia',
     icon: StarIcon,
@@ -44,7 +44,7 @@ const MENU_OPTIONS: ReadonlyArray<MenuOptionDefinition> = [
     id: 'my-letter',
     labelKey: 'my_letter',
     icon: CommentIcon,
-  },
+  }, */
   {
     id: 'logout',
     labelKey: 'logout',

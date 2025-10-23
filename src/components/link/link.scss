@@ -1,9 +1,7 @@
-@use "@/styles/theme" as theme;
-
-$top-navbar-link-color: theme.$link-color;
-$top-navbar-link-hover: theme.$color-primary;
-$top-navbar-gradient-start: theme.$color-primary;
-$top-navbar-gradient-end: theme.$color-primary-alt;
+$top-navbar-link-color: $link-color;
+$top-navbar-link-hover: $color-primary;
+$top-navbar-gradient-start: $color-primary;
+$top-navbar-gradient-end: $color-primary-alt;
 
 .top-navbar-link {
   text-decoration: none;
@@ -61,21 +59,21 @@ $top-navbar-gradient-end: theme.$color-primary-alt;
     font-size: 0.875rem;
     font-weight: 400;
     padding: 0;
-    color: theme.$color-primary;
+    color: $color-primary;
 
     &::after {
       bottom: -0.25rem;
       height: 1px;
-      background: theme.$color-primary;
+      background: $color-primary;
     }
 
     &:hover,
     &:focus {
-      color: theme.$color-primary-hover;
+      color: $color-primary-hover;
 
       &::after {
         width: 100%;
-        background: theme.$color-primary-hover;
+        background: $color-primary-hover;
       }
     }
   }

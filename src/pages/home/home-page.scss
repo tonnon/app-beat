@@ -1,17 +1,24 @@
-@use "@/styles/theme" as theme;
-
 .home-page {
-  min-height: 100dvh;
+  height: 100dvh;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(5rem, 8vw, 6rem) clamp(2rem, 6vw, 6rem);
+  padding-top: clamp(4rem, 9vw, 6rem);
+  padding-bottom: clamp(1.5rem, 6vw, 3.5rem);
+  padding-inline: clamp(2rem, 6vw, 6rem);
   background-image: url('../../assets/img/home-page-bg.webp');
   background-repeat: no-repeat;
   background-position: left 20px;
   background-size: auto 100%;
   background-color: transparent;
   width: 100%;
+  overflow: hidden;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 body.home-page-overflow-hidden {
@@ -43,7 +50,7 @@ body.home-page-overflow-hidden {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  color: theme.$color-text;
+  color: $color-text;
 }
 
 .home-page-hero-title {
@@ -51,13 +58,13 @@ body.home-page-overflow-hidden {
   line-height: 1.15;
   font-weight: 800;
   text-transform: uppercase;
-  color: theme.$link-color;
+  color: $link-color;
 }
 
 .home-page-hero-description {
   font-size: clamp(1rem, 2vw, 1.125rem);
   line-height: 1.6;
-  color: theme.$link-color;
+  color: $link-color;
 }
 
 .home-page-hero-highlight {
@@ -66,7 +73,7 @@ body.home-page-overflow-hidden {
 
 .home-page-hero-description:last-of-type {
   font-weight: 200;
-  color: theme.$link-color;
+  color: $link-color;
 }
 
 .home-page-hero-cta {
@@ -99,18 +106,11 @@ body.home-page-overflow-hidden {
     width: 100%;
   }
 
-  .home-page-hero-cta {
-    align-self: flex-end;
-  }
-}
-
-@media (max-width: 660px) {
-  .home-page {
-    padding-top: clamp(3rem, 12vw, 4rem);
-    padding-bottom: clamp(4rem, 14vw, 6rem);
-  }
-
   .home-page-hero-image img {
     width: 381px;
+  }
+
+  .home-page-hero-cta {
+    align-self: flex-end;
   }
 }

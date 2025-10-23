@@ -1,11 +1,10 @@
-@use "@/styles/theme" as theme;
-
 .warning {
   display: flex;
   align-items: center;
   gap: 0.75rem;
   padding: 0.875rem 1rem;
-  border-radius: 6px;
+  border-radius: 3px;
+  margin-top: 0.75rem;
   animation: warning-slide-in 0.3s ease-out;
 }
 
@@ -23,28 +22,28 @@
 }
 
 .warning-error {
-  background-color: rgba(theme.$color-error, 0.08);
-  border: 1px solid rgba(theme.$color-error, 0.3);
+  background-color: rgba($color-error, 0.08);
+  border: 1px solid rgba($color-error, 0.3);
 
   .warning-icon {
-    color: theme.$color-error;
+    color: $color-error;
   }
 
   .warning-message {
-    color: theme.$color-error;
+    color: $color-error;
   }
 }
 
 .warning-success {
-  background-color: rgba(theme.$color-primary, 0.08);
-  border: 1px solid rgba(theme.$color-primary, 0.3);
+  background-color: $color-success-bg;
+  border: 1px solid $color-success-border;
 
   .warning-icon {
-    color: theme.$color-primary;
+    color: $color-success;
   }
 
   .warning-message {
-    color: theme.$color-primary;
+    color: $color-success;
   }
 }
 

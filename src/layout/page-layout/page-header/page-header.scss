@@ -1,6 +1,4 @@
 $heading-gap: clamp(1rem, 2vw, 1.5rem);
-$title-color: #0f172a;
-$subtitle-color: #475569;
 $subtitle-max-width: 44rem;
 $page-header-gap: clamp(1rem, 2.2vw, 1.75rem);
 
@@ -21,11 +19,11 @@ $page-header-gap: clamp(1rem, 2.2vw, 1.75rem);
 .page-title {
   font-size: clamp(2rem, 4vw, 2.6rem);
   font-weight: 800;
-  color: $title-color;
+  color: $color-title;
 }
 
 .page-subtitle {
-  color: $subtitle-color;
+  color: $color-subtitle;
   font-size: clamp(1rem, 2.1vw, 1.1rem);
   line-height: 1.7;
   max-width: $subtitle-max-width;

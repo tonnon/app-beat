@@ -1,17 +1,15 @@
-@use "@/styles/theme" as theme;
-
 $mobile-menu-top-offset: 94px;
 $mobile-menu-breakpoint: 660px;
-$mobile-menu-bg: rgba(theme.$page-background, 0.98);
+$mobile-menu-bg: rgba($page-background, 0.98);
 $mobile-menu-border: rgba(0, 0, 0, 0.05);
 $mobile-menu-shadow: 0 20px 32px rgba(15, 23, 42, 0.16);
 $mobile-menu-divider-color: rgba(0, 0, 0, 0.08);
 $mobile-menu-overlay-gap: 1.5rem;
 $mobile-menu-interaction-gap: 1rem;
 $mobile-menu-z-index: 999;
-$mobile-menu-toggle-color: theme.$mobile-menu-icon-color;
-$mobile-menu-toggle-hover-color: theme.$color-primary;
-$mobile-menu-toggle-outline-color: theme.$color-primary;
+$mobile-menu-toggle-color: $mobile-menu-icon-color;
+$mobile-menu-toggle-hover-color: $color-primary;
+$mobile-menu-toggle-outline-color: $color-primary;
 
 .mobile-menu {
   display: none;

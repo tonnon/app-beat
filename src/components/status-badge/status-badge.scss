@@ -1,16 +1,14 @@
 $status-badge-gap: 0.45rem;
 $status-badge-font-weight: 600;
 $status-badge-dot-size: 0.45rem;
-$status-badge-dot-bg: rgba(255, 255, 255, 0.8);
-$status-badge-dot-shadow: 0 0 0 1px rgba(15, 23, 42, 0.08);
+$status-badge-dot-shadow: 0 0 0 1px $status-badge-dot-shadow;
 $status-badge-inline-font-size: 0.875rem;
-$status-badge-inline-color: #1f2937;
 $status-badge-inline-dot-size: 0.55rem;
-$status-badge-inline-dot-shadow: 0 0 0 1px rgba(15, 23, 42, 0.1);
+$status-badge-inline-dot-shadow: 0 0 0 1px $status-badge-inline-dot-shadow;
 $status-badge-colors: (
-	'completed': #44ecf2,
-	'in_progress': #ff9900,
-	'not_started': #f72b4f,
+	'completed': $status-completed,
+	'in_progress': $status-in-progress,
+	'not_started': $status-not-started,
 );
 
 .status-badge {
@@ -28,13 +26,10 @@ $status-badge-colors: (
 	box-shadow: $status-badge-dot-shadow;
 }
 
-.status-badge-label {
-	line-height: 1;
-}
-
 .status-badge--inline {
 	font-size: $status-badge-inline-font-size;
-	color: $status-badge-inline-color;
+	font-weight: 400;
+	color: $color-neutral-800;
 
 	.status-badge-dot {
 		width: $status-badge-inline-dot-size;

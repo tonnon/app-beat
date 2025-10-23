@@ -158,32 +158,31 @@ export default function UserPage() {
       <PageHeader
         title={t('header.title' as QuestionnairesHeaderKey)}
         subtitle={t('header.subtitle' as QuestionnairesHeaderKey)}
-        actions={
-          <div className="questionnaires-page-filters">
-            <Dropdown
-              variant="filter"
-              trigger={(
-                <button
-                  type="button"
-                  className="dropdown-trigger--filter"
-                  aria-haspopup="listbox"
-                  aria-expanded={isFilterOpen}
-                >
-                  <StatusBadge
-                    status={statusFilter}
-                    label={currentFilterLabel}
-                    variant="inline"
-                    showDot={statusFilter !== 'all'}
-                  />
-                </button>
-              )}
-              items={dropdownItems}
-              align="end"
-              onOpenChange={setIsFilterOpen}
-            />
-          </div>
-        }
       />
+
+      <div className="questionnaires-page-filters">
+        <Dropdown
+          variant="filter"
+          trigger={(
+            <button
+              type="button"
+              className="dropdown-trigger--filter"
+              aria-haspopup="listbox"
+              aria-expanded={isFilterOpen}
+            >
+              <StatusBadge
+                status={statusFilter}
+                label={currentFilterLabel}
+                variant="inline"
+                showDot={statusFilter !== 'all'}
+              />
+            </button>
+          )}
+          items={dropdownItems}
+          align="end"
+          onOpenChange={setIsFilterOpen}
+        />
+      </div>
 
       <section className="questionnaires-page-content" aria-live="polite">
         <QuestionnaireGrid

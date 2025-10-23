@@ -8,7 +8,8 @@ import Dropdown from '@/components/dropdown/Dropdown';
 export type Language = 'ES' | 'CA';
 
 export interface LanguageSelectorProps {
-  onLanguageChange?: (language: Language) => void;
+  readonly onLanguageChange?: (language: Language) => void;
+  readonly displayMode?: 'dropdown' | 'inline';
 }
 
 const LANGUAGES = [
@@ -18,6 +19,7 @@ const LANGUAGES = [
 
 export default function LanguageSelector({
   onLanguageChange,
+  displayMode = 'dropdown',
 }: LanguageSelectorProps) {
   const { i18n } = useTranslation('navbar');
   
@@ -37,9 +39,56 @@ export default function LanguageSelector({
   }, [i18n, onLanguageChange]);
 
   const availableLanguages = useMemo(
-    () => LANGUAGES.filter(lang => lang.code !== selectedLanguage),
-    [selectedLanguage]
+    () => LANGUAGES.filter((lang) => lang.code !== selectedLanguage),
+    [selectedLanguage],
   );
+
+  const selectedLanguageData = useMemo(
+    () => LANGUAGES.find((lang) => lang.code === selectedLanguage),
+    [selectedLanguage],
+  );
+
+  if (!selectedLanguageData) {
+    return null;
+  }
+
+  if (displayMode === 'inline') {
+    return (
+      <div className="language-selector-inline" role="group" aria-label="Language selector" aria-live="polite">
+        {LANGUAGES.map((language) => {
+          const isSelected = language.code === selectedLanguage;
+
+          const handleClick = () => {
+            if (!isSelected) {
+              handleLanguageChange(language.code);
+            }
+          };
+
+          return (
+            <button
+              key={language.code}
+              type="button"
+              className="language-selector-inline-button"
+              data-selected={isSelected ? 'true' : undefined}
+              onClick={handleClick}
+              aria-pressed={isSelected}
+              aria-label={isSelected ? `${language.name} selected` : `Change language to ${language.name}`}
+            >
+              <span className="language-selector-inline-flag">
+                <img
+                  src={language.flag}
+                  alt={`${language.name} flag`}
+                  width="20"
+                  height="20"
+                />
+              </span>
+              <span className="language-selector-inline-code">{language.code}</span>
+            </button>
+          );
+        })}
+      </div>
+    );
+  }
 
   const dropdownItems = useMemo(
     () =>

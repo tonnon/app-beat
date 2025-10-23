@@ -11,6 +11,13 @@ export default defineConfig({
       '@': '/src',
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use 'sass:color'; @use '@/styles/theme' as *;`,
+      },
+    },
+  },
   test: {
     projects: [{
       extends: true,

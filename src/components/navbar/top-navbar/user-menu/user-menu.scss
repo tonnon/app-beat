@@ -1,23 +1,21 @@
-@use "@/styles/theme" as theme;
-
 $user-menu-trigger-padding: 0.25rem;
-$user-menu-trigger-radius: 0.375rem;
-$user-menu-trigger-color: theme.$button-color-primary;
-$user-menu-trigger-shadow-hover: 0 4px 12px theme.$button-color-primary-shadow;
+$user-menu-trigger-radius: 3px;
+$user-menu-trigger-color: $button-color-primary;
+$user-menu-trigger-shadow-hover: 0 4px 12px $button-color-primary-shadow;
 $user-menu-trigger-transition: color 180ms ease, filter 180ms ease;
-$user-menu-focus-outline: rgba(theme.$button-color-primary, 0.4);
+$user-menu-focus-outline: rgba($button-color-primary, 0.4);
 $user-menu-content-min-width: 15rem;
 $user-menu-content-padding: 0.25rem;
-$user-menu-content-background: theme.$color-surface;
-$user-menu-content-border-radius: 0.75rem;
-$user-menu-content-border-color: theme.$color-border;
-$user-menu-content-shadow: 0 18px 36px theme.$dialog-shadow-color;
+$user-menu-content-background: $color-surface;
+$user-menu-content-border-radius: 3px;
+$user-menu-content-border-color: $color-border;
+$user-menu-content-shadow: 0 18px 36px $dialog-shadow-color;
 $user-menu-item-padding: 0.65rem 0.85rem;
 $user-menu-item-gap: 0.75rem;
 $user-menu-item-radius: 0.5rem;
 $user-menu-icon-size: 1.5rem;
-$user-menu-icon-color: theme.$color-primary;
-$user-menu-icon-highlight-color: theme.$color-primary-hover;
+$user-menu-icon-color: $color-primary;
+$user-menu-icon-highlight-color: $color-primary-hover;
 $user-menu-label-font-size: 0.95rem;
 $user-menu-label-font-weight: 600;
 

@@ -1,13 +1,17 @@
 $progress-size: 112px;
 $progress-inner-inset: 12px;
 $progress-stroke-width: 10;
-$progress-background: #ffffff;
-$progress-inner-shadow-color: #e7ecf2;
-$progress-primary-fallback: #ffa703;
 $progress-inner-shadow: inset 0 0 0 2px $progress-inner-shadow-color;
 $progress-transition: stroke-dashoffset 0.4s ease;
-$progress-value-color: #2d2a44;
-$progress-track-color: #f1f5f9;
+
+$progress-status-config: (
+  'completed': (
+    'progress-circle-color': $progress-completed,
+  ),
+  'not_started': (
+    'progress-circle-color': $color-input-border,
+  )
+);
 
 .progress-circle {
   display: flex;
@@ -31,7 +35,7 @@ $progress-track-color: #f1f5f9;
   position: absolute;
   inset: $progress-inner-inset;
   border-radius: 50%;
-  background: $progress-background;
+  background: $color-white;
   box-shadow: $progress-inner-shadow;
 }
 
@@ -47,13 +51,13 @@ $progress-track-color: #f1f5f9;
 }
 
 .progress-circle circle[data-circle='track'] {
-  stroke: var(--progress-circle-track, $progress-track-color);
+  stroke: var(--progress-circle-track, $progress-track);
   stroke-width: $progress-stroke-width;
   stroke-linecap: butt;
 }
 
 .progress-circle circle[data-circle='progress'] {
-  stroke: var(--progress-circle-color, $progress-primary-fallback);
+  stroke: var(--progress-circle-color, $progress-primary);
   stroke-width: $progress-stroke-width;
   stroke-linecap: round;
   transition: $progress-transition;
@@ -67,6 +71,14 @@ $progress-track-color: #f1f5f9;
   justify-content: center;
   font-size: 1rem;
   font-weight: 700;
-  color: $progress-value-color;
+  color: $color-neutral-800;
   z-index: 2;
+}
+
+@each $status, $variables in $progress-status-config {
+  [data-status='#{$status}'] .progress-circle {
+    @each $key, $value in $variables {
+      --#{$key}: #{$value};
+    }
+  }
 }

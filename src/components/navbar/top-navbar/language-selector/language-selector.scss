@@ -1,15 +1,13 @@
-@use "@/styles/theme" as theme;
-
-$language-selector-bg: theme.$color-primary;
-$language-selector-bg-hover: theme.$color-primary-hover;
-$language-selector-bg-hover-alpha: rgba(theme.$color-primary, 0.1);
-$language-selector-text: theme.$color-surface;
-$language-selector-content-bg: theme.$color-surface;
-$language-selector-item-active: theme.$color-primary;
-$language-selector-border: theme.$color-border;
+$language-selector-bg: $color-primary;
+$language-selector-bg-hover: $color-primary-hover;
+$language-selector-bg-hover-alpha: rgba($color-primary, 0.1);
+$language-selector-text: $color-surface;
+$language-selector-content-bg: $color-surface;
+$language-selector-item-active: $color-primary;
+$language-selector-border: $color-border;
 $language-selector-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 $language-selector-shadow-trigger: 0 2px 4px rgba(0, 0, 0, 0.1);
-$language-selector-shadow-trigger-hover: 0 4px 4px 0 #8f720840;
+$language-selector-shadow-trigger-hover: 0 4px 4px 0 $button-color-primary-glow;
 $language-selector-trigger-size: 35px;
 $language-selector-trigger-size-mobile: 36px;
 $language-selector-flag-size: 24px;
@@ -22,6 +20,69 @@ $language-selector-outline-offset: 3px;
 $language-selector-animation-duration: 0.2s;
 $language-selector-transition-fast: 0.15s ease;
 $language-selector-transition-normal: 0.2s ease;
+
+.language-selector-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 999px;
+  background: rgba($language-selector-bg, 0.08);
+  border: 1px solid rgba($language-selector-bg, 0.25);
+  backdrop-filter: blur(10px);
+}
+
+.language-selector-inline-button {
+  appearance: none;
+  border: none;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color $language-selector-transition-fast, color $language-selector-transition-fast;
+  color: $color-text;
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  &:hover,
+  &:focus-visible {
+    background: rgba($language-selector-bg, 0.15);
+    outline: none;
+    color: $language-selector-item-active;
+  }
+
+  &[data-selected='true'] {
+    background: $language-selector-bg;
+    color: $language-selector-text;
+    box-shadow: 0 6px 16px rgba($language-selector-bg, 0.25);
+  }
+}
+
+.language-selector-inline-flag {
+  display: inline-flex;
+  width: $language-selector-flag-size-mobile;
+  height: $language-selector-flag-size-mobile;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid rgba($language-selector-bg, 0.25);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.language-selector-inline-code {
+  letter-spacing: 0.06em;
+}
+
+.language-selector-inline-button[data-selected='true'] .language-selector-inline-flag {
+  border-color: rgba($language-selector-text, 0.5);
+}
 
 .language-selector-trigger {
   appearance: none;
